@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "ssh-server": {
+      "command": "node",
+      "args": [
+        "C:\\Users\\ArieE\\Dev\\mcp-ssh-server\\src\\index.js"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
