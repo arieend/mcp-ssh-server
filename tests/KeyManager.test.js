@@ -119,9 +119,13 @@ describe('KeyManager', () => {
       const host = 'user@host:22/path';
       const keyPath = keyManager.getPrivateKeyPath(host);
 
-      // Should replace invalid filename characters
-      assert.ok(!keyPath.includes('/'), 'Path should not contain forward slashes in filename');
-      assert.ok(!keyPath.includes(':'), 'Path should not contain colons in filename (except drive letter on Windows)');
+      // Get just the filename part (after the last separator)
+      const filename = path.basename(keyPath);
+      
+      // Filename should not contain invalid characters
+      assert.ok(!filename.includes('/'), 'Filename should not contain forward slashes');
+      assert.ok(!filename.includes(':'), 'Filename should not contain colons');
+      assert.ok(!filename.includes('@'), 'Filename should not contain @ symbols');
     });
   });
 
