@@ -1,0 +1,86 @@
+{
+  "name": "mcp-ssh-assistant",
+  "publisher": "arieend",
+  "displayName": "MCP SSH Assistant",
+  "description": "VS Code Client for MCP SSH Server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arieend/mcp-ssh-server"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pelssh.connect",
+        "title": "pelssh: Connect to Server"
+      },
+      {
+        "command": "pelssh.execute",
+        "title": "pelssh: Execute Command"
+      },
+      {
+        "command": "pelssh.readFile",
+        "title": "pelssh: Read File"
+      },
+      {
+        "command": "pelssh.writeFile",
+        "title": "pelssh: Write File"
+      }
+    ],
+    "chatParticipants": [
+      {
+        "id": "ssh-server",
+        "name": "ssh-server",
+        "description": "Chat with your remote SSH server",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "connect",
+            "description": "Connect to a remote server"
+          },
+          {
+            "name": "exec",
+            "description": "Execute a remote command"
+          }
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "MCP SSH Assistant",
+      "properties": {
+        "mcpSsh.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the mcp-ssh-server src/index.js file."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
+    "eslint": "^8.54.0",
+    "glob": "^13.0.0",
+    "mocha": "^11.7.5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0"
+  }
+}

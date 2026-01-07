@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build VS Code Extension
+        working-directory: ./vscode-extension
+        run: |
+          npm install
+          npx vsce package --no-dependencies
+
+      - name: Package Server
+        run: |
+          zip -r mcp-ssh-server.zip src package.json package-lock.json README.md LICENSE
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            vscode-extension/*.vsix
+            mcp-ssh-server.zip
+          generate_release_notes: true

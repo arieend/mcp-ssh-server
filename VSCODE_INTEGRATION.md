@@ -7,7 +7,7 @@ This guide explains how to integrate the MCP SSH Server with VS Code and GitHub 
 1. **Install the MCP SSH Server**:
 
    ```bash
-   cd C:\Users\ArieE\Dev\mcp-ssh-server
+   cd %USERPROFILE%\Dev\mcp-ssh-server
    npm install
    ```
 
@@ -27,7 +27,7 @@ This guide explains how to integrate the MCP SSH Server with VS Code and GitHub 
      "mcpServers": {
        "ssh-server": {
          "command": "node",
-         "args": ["C:\\Users\\ArieE\\Dev\\mcp-ssh-server\\src\\index.js"],
+         "args": ["%USERPROFILE%\\Dev\\mcp-ssh-server\\src\\index.js"],
          "env": {
            "LOG_LEVEL": "info"
          }
@@ -122,7 +122,7 @@ const { MCPClient } = require("./mcp-client");
 
 function activate(context) {
   const mcpClient = new MCPClient("node", [
-    "C:\\Users\\ArieE\\Dev\\mcp-ssh-server\\src\\index.js",
+    "%USERPROFILE%\\Dev\\mcp-ssh-server\\src\\index.js",
   ]);
 
   const participant = vscode.chat.createChatParticipant(
@@ -199,7 +199,7 @@ You can customize the server behavior via environment variables in the MCP setti
   "mcpServers": {
     "ssh-server": {
       "command": "node",
-      "args": ["C:\\Users\\ArieE\\Dev\\mcp-ssh-server\\src\\index.js"],
+      "args": ["%USERPROFILE%\\Dev\\mcp-ssh-server\\src\\index.js"],
       "env": {
         "LOG_LEVEL": "debug",
         "LOG_TO_FILE": "true"
@@ -227,3 +227,17 @@ Available variables:
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [VS Code Extension API](https://code.visualstudio.com/api)
 - [GitHub Copilot Chat API](https://code.visualstudio.com/api/extension-guides/chat)
+
+## VS Code Extension
+
+We provide a dedicated VS Code extension for a seamless experience.
+
+1.  Navigate to `vscode-extension/` directory.
+2.  Install dependencies: `npm install`.
+3.  Package: `npx vsce package`.
+4.  Install the generated `.vsix` file in VS Code.
+
+Access the extension via:
+
+- **Chat**: `@ssh-server`
+- **Commands**: `pelssh: ...`
