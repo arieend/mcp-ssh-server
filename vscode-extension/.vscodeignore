@@ -1,0 +1,9 @@
+.vscode-test/
+.gitignore
+.eslintrc.json
+.vscodeignore
+vsc-extension-quickstart.md
+test/
+node_modules/
+!node_modules/
+*.vsix
