@@ -26,7 +26,7 @@ This guide explains how to integrate the MCP SSH Server with VS Code and GitHub 
      "mcpServers": {
        "ssh-server": {
          "command": "node",
-         "args": ["%USERPROFILE%\\Dev\\mcp-ssh-server\\src\\index.js"],
+         "args": ["path\\mcp-ssh-server\\src\\index.js"],
          "env": {
            "LOG_LEVEL": "info"
          }
@@ -198,7 +198,7 @@ You can customize the server behavior via environment variables in the MCP setti
   "mcpServers": {
     "ssh-server": {
       "command": "node",
-      "args": ["%USERPROFILE%\\Dev\\mcp-ssh-server\\src\\index.js"],
+      "args": ["path\\mcp-ssh-server\\src\\index.js"],
       "env": {
         "LOG_LEVEL": "debug",
         "LOG_TO_FILE": "true"

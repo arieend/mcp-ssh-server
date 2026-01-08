@@ -60,12 +60,7 @@ A **Model Context Protocol (MCP)** server that bridges VS Code on Windows with r
 
 3. **Configure VS Code MCP Settings**:
 
-   Add the server to your MCP settings file. The location depends on your VS Code configuration:
-
-   - Windows: `%APPDATA%\Code\User\globalStorage\saoudrizwan.claude-dev\settings\cline_mcp_settings.json`
-   - Or check VS Code's MCP settings location
-
-   Add this configuration:
+   Add this configurationto to your MCP settings file. The location depends on your VS Code configuration:
 
    ```json
    {
