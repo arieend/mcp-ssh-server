@@ -7,7 +7,6 @@ This guide explains how to integrate the MCP SSH Server with VS Code and GitHub 
 1. **Install the MCP SSH Server**:
 
    ```bash
-   cd %USERPROFILE%\Dev\mcp-ssh-server
    npm install
    ```
 
