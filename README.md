@@ -48,7 +48,6 @@ A **Model Context Protocol (MCP)** server that bridges VS Code on Windows with r
 1. **Clone the repository**:
 
    ```bash
-   cd %USERPROFILE%\Dev
    git clone <repository-url> mcp-ssh-server
    cd mcp-ssh-server
    ```
@@ -73,7 +72,7 @@ A **Model Context Protocol (MCP)** server that bridges VS Code on Windows with r
      "mcpServers": {
        "ssh-server": {
          "command": "node",
-         "args": ["%USERPROFILE%\\Dev\\mcp-ssh-server\\src\\index.js"],
+         "args": ["path\\mcp-ssh-server\\src\\index.js"],
          "env": {
            "LOG_LEVEL": "info"
          }
